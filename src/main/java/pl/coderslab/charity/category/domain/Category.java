@@ -19,7 +19,6 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    // Name
     private String name;
 
 }
