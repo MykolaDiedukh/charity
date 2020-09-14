@@ -1,4 +1,4 @@
-package pl.coderslab.charity.entity;
+package pl.coderslab.charity.category.domain;
 
 import lombok.*;
 
@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Builder
-class Category {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
