@@ -5,7 +5,7 @@ import pl.coderslab.charity.donation.domain.Donation;
 
 import java.util.List;
 
-@Service
+
 public interface DonationService {
 
     List<Donation> findAll();

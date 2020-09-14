@@ -2,11 +2,10 @@ package pl.coderslab.charity.donation.domain;
 
 import lombok.*;
 import pl.coderslab.charity.category.domain.Category;
-import pl.coderslab.charity.institution.domain.Insitution;
+import pl.coderslab.charity.institution.domain.Institution;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -33,5 +32,5 @@ public class Donation {
     private List<Category> categories;
 
     @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Insitution institution;
+    private Institution institution;
 }

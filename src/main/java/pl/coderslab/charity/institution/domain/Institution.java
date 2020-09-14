@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Insitution {
+public class Institution {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
