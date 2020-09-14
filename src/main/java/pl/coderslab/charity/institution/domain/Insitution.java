@@ -1,4 +1,4 @@
-package pl.coderslab.charity.category.domain;
+package pl.coderslab.charity.institution.domain;
 
 import lombok.*;
 
@@ -8,17 +8,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@Getter
 @Builder
-public class Category {
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(of = "id")
+public class Insitution {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
+    private String description;
 }
