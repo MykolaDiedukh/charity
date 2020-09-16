@@ -17,4 +17,7 @@ public interface DonationService {
     Donation update(Donation donation, Long id);
 
     void delete(Long id);
+
+    Integer bagsQuantity();
+
 }
