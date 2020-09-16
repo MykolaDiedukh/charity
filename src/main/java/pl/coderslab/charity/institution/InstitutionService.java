@@ -3,7 +3,6 @@ package pl.coderslab.charity.institution;
 import pl.coderslab.charity.institution.domain.Institution;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface InstitutionService {
 

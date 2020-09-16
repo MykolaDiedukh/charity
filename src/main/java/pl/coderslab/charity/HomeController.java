@@ -8,7 +8,6 @@ import pl.coderslab.charity.institution.InstitutionService;
 
 
 @Controller
-//@RequiredArgsConstructor
 public class HomeController {
 
     private final InstitutionService institutionService;
