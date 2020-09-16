@@ -1,6 +1,5 @@
 package pl.coderslab.charity.institution;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.institution.domain.Institution;
@@ -9,10 +8,13 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/institution")
-@RequiredArgsConstructor
 class InstitutionController {
 
     private final InstitutionService institutionService;
+
+    InstitutionController(InstitutionService institutionService) {
+        this.institutionService = institutionService;
+    }
 
     @GetMapping
     public List<Institution> findAll(){

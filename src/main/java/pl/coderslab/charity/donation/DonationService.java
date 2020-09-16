@@ -1,10 +1,8 @@
 package pl.coderslab.charity.donation;
 
-import org.springframework.stereotype.Service;
 import pl.coderslab.charity.donation.domain.Donation;
 
 import java.util.List;
-
 
 public interface DonationService {
 
@@ -12,7 +10,7 @@ public interface DonationService {
 
     Donation findById(Long id);
 
-    Donation create(Donation donation);
+    Long create(Donation donation);
 
     Donation update(Donation donation, Long id);
 
