@@ -7,11 +7,11 @@ import pl.coderslab.charity.institution.domain.Institution;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 class InstitutionServiceImpl implements InstitutionService {
 
+    private final static String ERROR_MESSAGE = "Institution not found with id: ";
     private final InstitutionRepository institutionRepository;
 
     InstitutionServiceImpl(InstitutionRepository institutionRepository) {
@@ -25,7 +25,7 @@ class InstitutionServiceImpl implements InstitutionService {
 
     @Override
     public Institution findById(Long id) {
-        return institutionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Institution not found with id: " + id));
+        return institutionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(ERROR_MESSAGE + id));
 
     }
 
@@ -37,13 +37,13 @@ class InstitutionServiceImpl implements InstitutionService {
 
     @Override
     public Institution update(Institution institution, Long id) {
-        Institution institutionById = institutionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Institution not found with id: " + id));
+        Institution institutionById = institutionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(ERROR_MESSAGE + id));
         return institutionRepository.save(institutionById);
     }
 
     @Override
     public void delete(Long id) {
-        Institution institutionById = institutionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Institution not found with id: " + id));
+        Institution institutionById = institutionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(ERROR_MESSAGE + id));
         institutionRepository.delete(institutionById);
     }
 }

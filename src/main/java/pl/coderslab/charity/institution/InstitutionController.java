@@ -1,12 +1,13 @@
 package pl.coderslab.charity.institution;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.institution.domain.Institution;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/institution")
 @RequiredArgsConstructor
 class InstitutionController {
@@ -37,5 +38,6 @@ class InstitutionController {
     public void delete(@PathVariable Long id){
         institutionService.delete(id);
     }
+
 
 }

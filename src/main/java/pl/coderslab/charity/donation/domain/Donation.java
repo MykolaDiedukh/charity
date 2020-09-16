@@ -28,9 +28,9 @@ public class Donation {
     private LocalDate pickUpTime;
     private String pickUpComment;
 
-    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany
     private List<Category> categories;
 
-    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne (fetch = FetchType.LAZY)
     private Institution institution;
 }
