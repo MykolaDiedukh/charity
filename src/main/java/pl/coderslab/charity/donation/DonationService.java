@@ -20,4 +20,5 @@ public interface DonationService {
 
     Integer bagsQuantity();
 
+    Integer donationQuantity();
 }
