@@ -23,6 +23,7 @@ public class HomeController {
     public String homeAction(Model model){
         model.addAttribute("institution", institutionService.findAll());
         model.addAttribute("given-bags", donationService.bagsQuantity());
+        model.addAttribute("donated-gifts", donationService.donationQuantity());
         return "index";
     }
 

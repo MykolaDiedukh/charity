@@ -46,4 +46,9 @@ class DonationServiceImpl implements DonationService {
         return donationRepository.findAllBagsQuantity();
     }
 
+    @Override
+    public Integer donationQuantity() {
+        return donationRepository.findAllDonationCount();
+    }
+
 }
