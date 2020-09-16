@@ -1,33 +1,49 @@
 package pl.coderslab.charity.institution.impl;
 
+import org.springframework.stereotype.Service;
+import pl.coderslab.charity.institution.InstitutionRepository;
 import pl.coderslab.charity.institution.InstitutionService;
-import pl.coderslab.charity.institution.domain.Insitution;
+import pl.coderslab.charity.institution.domain.Institution;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
+@Service
 class InstitutionServiceImpl implements InstitutionService {
-    @Override
-    public List<Insitution> findAll() {
-        return null;
+
+    private final static String ERROR_MESSAGE = "Institution not found with id: ";
+    private final InstitutionRepository institutionRepository;
+
+    InstitutionServiceImpl(InstitutionRepository institutionRepository) {
+        this.institutionRepository = institutionRepository;
     }
 
     @Override
-    public Insitution findById(Long id) {
-        return null;
+    public List<Institution> findAll() {
+        return institutionRepository.findAll();
     }
 
     @Override
-    public Insitution create(Insitution insitution) {
-        return null;
+    public Institution findById(Long id) {
+        return institutionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(ERROR_MESSAGE + id));
+
     }
 
     @Override
-    public Insitution update(Insitution insitution, Long id) {
-        return null;
+    public Long create(Institution institution) {
+        Institution save = institutionRepository.save(institution);
+        return save.getId();
+    }
+
+    @Override
+    public Institution update(Institution institution, Long id) {
+        Institution institutionById = institutionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(ERROR_MESSAGE + id));
+        return institutionRepository.save(institutionById);
     }
 
     @Override
     public void delete(Long id) {
-
+        Institution institutionById = institutionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(ERROR_MESSAGE + id));
+        institutionRepository.delete(institutionById);
     }
 }
