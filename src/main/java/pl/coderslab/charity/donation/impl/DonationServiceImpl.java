@@ -1,6 +1,7 @@
 package pl.coderslab.charity.donation.impl;
 
 import org.springframework.stereotype.Service;
+import pl.coderslab.charity.donation.DonationRepository;
 import pl.coderslab.charity.donation.DonationService;
 import pl.coderslab.charity.donation.domain.Donation;
 
@@ -8,6 +9,14 @@ import java.util.List;
 
 @Service
 class DonationServiceImpl implements DonationService {
+
+    private final DonationRepository donationRepository;
+
+    DonationServiceImpl(DonationRepository donationRepository) {
+        this.donationRepository = donationRepository;
+    }
+
+
     @Override
     public List<Donation> findAll() {
         return null;
@@ -30,6 +39,11 @@ class DonationServiceImpl implements DonationService {
 
     @Override
     public void delete(Long id) {
-
     }
+
+    @Override
+    public Integer bagsQuantity() {
+        return donationRepository.findAllBagsQuantity();
+    }
+
 }
