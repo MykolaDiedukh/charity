@@ -2,7 +2,8 @@ package pl.coderslab.charity.institution;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.charity.institution.domain.Institution;
+import pl.coderslab.charity.institution.converter.InstitutionMapper;
+import pl.coderslab.charity.institution.domain.InstitutionDTO;
 
 import java.util.List;
 
@@ -17,29 +18,38 @@ class InstitutionController {
     }
 
     @GetMapping
-    public List<Institution> findAll(){
-        return institutionService.findAll();
+    public List<InstitutionDTO> findAll() {
+        return InstitutionMapper
+                .INSTANCE
+                .toDTOList(institutionService.findAll());
     }
 
     @GetMapping("/{id}")
-    public Institution findById(@PathVariable Long id){
-        return institutionService.findById(id);
+    public InstitutionDTO findById(@PathVariable Long id) {
+        return InstitutionMapper
+                .INSTANCE
+                .toDTO(institutionService.findById(id));
     }
 
     @PostMapping
-    public Long create(@RequestBody Institution institution){
-        return institutionService.create(institution);
+    public Long create(@RequestBody InstitutionDTO institutionDTO) {
+        return institutionService.create(InstitutionMapper
+                .INSTANCE
+                .fromDTO(institutionDTO));
     }
 
     @PutMapping("/{id}")
-    public Institution update(@RequestBody Institution institution, @PathVariable Long id){
-        return institutionService.update(institution, id);
+    public InstitutionDTO update(@RequestBody InstitutionDTO institutionDTO, @PathVariable Long id) {
+        return InstitutionMapper
+                .INSTANCE
+                .toDTO(institutionService.update(InstitutionMapper
+                        .INSTANCE
+                        .fromDTO(institutionDTO), id));
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id) {
         institutionService.delete(id);
     }
-
 
 }

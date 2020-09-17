@@ -46,4 +46,5 @@ class InstitutionServiceImpl implements InstitutionService {
         Institution institutionById = institutionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(ERROR_MESSAGE + id));
         institutionRepository.delete(institutionById);
     }
+
 }
