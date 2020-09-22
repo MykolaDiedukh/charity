@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pl.coderslab.charity.category.domain.Category;
 
 @Repository
-interface CategoryRepository extends JpaRepository<Category, Long> {
+public interface CategoryRepository extends JpaRepository<Category, Long> {
 }
