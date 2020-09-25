@@ -163,7 +163,59 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
-      // TODO: get data from inputs and show them in summary
+      // get data from inputs and show them in summary
+      let checkboxCategory = document.querySelectorAll('#categoryCheckbox:checked');
+      let categoryResult=document.getElementById('category-result');
+      let categoryValue = [];
+
+      checkboxCategory.forEach(function ( element) {
+        categoryValue.push(element.parentElement.querySelector('span.description').innerText);
+      })
+      console.log(categoryValue);
+
+      let worki = document.querySelector('#quantity');
+
+      categoryResult.innerText=worki.value + ' worków ' + categoryValue.join(', ');
+
+
+
+      let radioFoundation =document.querySelector('#foundationRadio:checked');
+      let institution = document.getElementById('foundation-result');
+      if (radioFoundation !== null){
+        institution.innerText = radioFoundation.parentElement.querySelector('div.title').innerText;
+      }
+
+      let street = document.getElementById("street").value;
+      document.getElementById("street-result").innerText = street;
+      console.log(street)
+
+      let city = document.getElementById("city").value;
+      document.getElementById("city-result").innerText = city;
+      console.log(city)
+
+      let zipCode = document.getElementById("zip").value;
+      document.getElementById("zipCode-result").innerText = zipCode;
+      console.log(zipCode)
+
+      let resumeDate = document.getElementById("date").value;
+      document.getElementById("date-result").innerText = resumeDate;
+      console.log(resumeDate)
+
+      let resumeTime = document.getElementById("time").value;
+      document.getElementById("time-result").innerText = resumeTime;
+      console.log(resumeTime)
+
+      let resumeDetails = document.getElementById("comment").value;
+      if (resumeDetails !== '') {
+        document.getElementById("comment-result").innerText = resumeDetails;
+      } else {
+        document.getElementById("comment-result").innerText = 'Brak uwag';
+      }
+      console.log(resumeDetails)
+
+      let resumePhoneNumber = document.getElementById("phoneNumber").value;
+      document.getElementById("phone-result").innerText = resumePhoneNumber;
+      console.log(resumePhoneNumber)
     }
 
   }
