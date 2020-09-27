@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
     isValid(){
       switch (this.currentStep) {
         case 1: {
-          const checkBox = document.querySelectorAll("input[name=categories]:checked");
+          let checkBox = document.querySelectorAll("input[name=categories]:checked");
           if(checkBox.length===0){
             alert("Wybierz category, co najmniej jedną");
             return false;
@@ -159,9 +159,9 @@ document.addEventListener("DOMContentLoaded", function() {
           break;
         }
         case 2: {
-          const quantity = document.getElementById("quantity").value;
-          if (quantity === ''){
-            alert("Zapisz ilość worków");
+          let quantity = document.getElementById("quantity").value;
+          if (!quantity.match("^(?!0+$)\\d+$")){
+            alert("Zapisz ilość worków. Tylko cyfry");
             return false;
           }
           break;
@@ -177,21 +177,21 @@ document.addEventListener("DOMContentLoaded", function() {
         case 4: {
           let street = document.getElementById("street").value;
           if (street === ''){
-            alert("nazwa ulicy nie może być pusta");
+            alert("Nazwa ulicy nie może być pusta");
             return false;
           }
           let city = document.getElementById("city").value;
           if (city === ''){
-            alert("nazwa miasta nie może być pusta")
+            alert("Nazwa miasta nie może być pusta")
             return false;
           }
           let zip = document.getElementById("zip").value;
-          if (zip.length<=4){
-            alert("kod pocztowy musi mieć 5 cyfr")
+          if (!zip.match("^\\d{5,}$")){
+            alert("Kod pocztowy musi mieć 5 cyfr")
             return false;
           }
           let phoneNumber = document.getElementById("phoneNumber").value;
-          if (phoneNumber.length<=8){
+          if (!phoneNumber.match("^\\d{9,9}$")){
             alert("Numer telefonu musi mieć 9 cyfr")
             return false;
           }

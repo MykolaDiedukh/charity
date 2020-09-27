@@ -116,7 +116,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input path="quantity"/>
+                        <form:input type="number" path="quantity"/>
                     </label>
                 </div>
 
@@ -135,7 +135,6 @@
                     <div class="form-group form-group--checkbox">
                         <label>
                             <form:radiobutton id="foundationRadio" path="institution"  value="${institution.id}"/>
-                                <%--                        <input type="radio" name="organization" value="old"/>--%>
                             <span class="checkbox radio"></span>
                             <span class="description">
                   <div class="title">Fundacja “${institution.name}”</div>
