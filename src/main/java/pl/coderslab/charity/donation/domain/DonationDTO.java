@@ -5,6 +5,7 @@ import pl.coderslab.charity.category.domain.CategoryDTO;
 import pl.coderslab.charity.institution.domain.InstitutionDTO;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Getter
@@ -21,7 +22,7 @@ public class DonationDTO {
     private String city;
     private String zipCode;
     private LocalDate pickUpDate;
-    private LocalDate pickUpTime;
+    private LocalTime pickUpTime;
     private String pickUpComment;
 
     private List<CategoryDTO> categories;

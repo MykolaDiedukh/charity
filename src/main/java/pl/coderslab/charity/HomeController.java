@@ -28,20 +28,11 @@ public class HomeController {
     @RequestMapping("/")
     public String homeAction(Model model){
         model.addAttribute("institution", institutionService.findAll());
-        model.addAttribute("given-bags", donationService.bagsQuantity());
-        model.addAttribute("donated-gifts", donationService.donationQuantity());
+        model.addAttribute("bags", donationService.bagsQuantity());
+        model.addAttribute("gifts", donationService.donationQuantity());
         return "index";
     }
 
-/*    @RequestMapping("/form")
-    public String formAction(Model model){
-        model.addAttribute("institutions", institutionService.findAll());
-        model.addAttribute("category", categoryService.findAll());
-        model.addAttribute("donation", new Donation());
-        return "form";
-    }*/
-
-//    @RequestMapping("/form")
     @GetMapping("form")
     public String formAction(Model model){
         model.addAttribute("category", categoryService.findAll());
